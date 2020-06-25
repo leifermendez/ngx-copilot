@@ -5,8 +5,14 @@
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
   },
+  "author": {
+    "email": "leifer33@gmail.com",
+    "name": "Leifer Mendez"
+  },
+  "scripts": {
+    "build-lib": "ng build ngx-copilot"
+  },
   "dependencies": {
-    "animate.css": "^4.1.0",
     "tslib": "^1.10.0"
   }
 }

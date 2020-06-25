@@ -18,8 +18,7 @@ export class CopilotDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input('copilot-step') step: any;
   @Input('copilot-template') template: TemplateRef<any>;
 
-  constructor(private service: NgxCopilotService, private elem: ElementRef,
-              private renderer: Renderer2) {
+  constructor(private service: NgxCopilotService, private elem: ElementRef) {
 
   }
 
