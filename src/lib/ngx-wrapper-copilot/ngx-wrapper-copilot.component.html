@@ -1,0 +1,7 @@
+<div class="ngx-wrapper-overview animate__animated animate__fadeIn">
+  <div *ngFor="let te of viewTemplate" [attr.step]="te?.step"
+       class="animate__animated animate__bounceIn copilot-view copilot-view-step-{{te?.step}}">
+    <ng-container *ngTemplateOutlet="te?.template"></ng-container>
+  </div>
+
+</div>

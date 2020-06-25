@@ -1,0 +1,71 @@
+
+.ngx-wrapper-overview {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ngx-wrapper-overview .copilot-view {
+  position: fixed;
+  max-width: 300px;
+  max-height: min-content;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #6b66ff;
+  color: white;
+  display: none;
+}
+.ngx-wrapper-overview .copilot-view:before{
+  /*content: "";*/
+  /*background-color: #6b66ff;*/
+  /*position: absolute;*/
+  /*width: 30px;*/
+  /*height: 30px;*/
+  /*margin-left: -15px;*/
+  /*transform: rotate(45deg);*/
+  /*margin-top: 15px;*/
+  /*z-index: -1;*/
+}
+
+.ngx-copilot-pulse {
+  display: block;
+  border-radius: 50%;
+  background: #cca92c;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.8);
+  animation: ngx-copilot-pulse 2s infinite;
+}
+.ngx-copilot-pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes ngx-copilot-pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes ngx-copilot-pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}

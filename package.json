@@ -1,0 +1,12 @@
+{
+  "name": "ngx-copilot",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.9",
+    "@angular/core": "^9.1.9"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "tslib": "^1.10.0"
+  }
+}
