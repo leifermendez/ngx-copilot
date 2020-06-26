@@ -6,9 +6,9 @@ The most expected has arrived, a package for Angular that facilitates us to impr
 <img src="https://badgen.net/npm/dy/ngx-copilot" /> <img src="https://badgen.net/npm/v/ngx-copilot" />
 ---
 
-[Live demo](https://angular-ivy-gtkvhe.stackblitz.io)
+[Live demo](https://ngx-copilot.stackblitz.io/)
 
-[Stackblitz](https://stackblitz.com/edit/angular-ivy-gtkvhe)
+[Stackblitz](https://stackblitz.com/edit/ngx-copilot)
 
 <p  align="center" style="display:flex;justify-content: space-between;width:100%;align-content: center;">
 <b>Examples</b><br>
