@@ -37,22 +37,22 @@ export class NgxCopilotService {
     }
   }
 
-  public getTemplates = () => {
+  public getTemplates = (o = 1) => {
     try {
       this.elementsDomActive = document.querySelectorAll(`.copilot-view.copilot-active`);
       this.elementsDom = document.querySelectorAll(`.copilot-view`);
       if (!(this.elementsDomActive.length)) {
-        this.find(1);
+        this.find(o);
       }
     } catch (e) {
       return null;
     }
   }
 
-  public checkInit = () => {
+  public checkInit = (position = 1) => {
     setTimeout(() => {
       this.getParent();
-      this.getTemplates()
+      this.getTemplates(position)
     }, 60)
   }
 
@@ -104,11 +104,13 @@ export class NgxCopilotService {
 
   public setZone = (element = null) => {
     try {
-      const {top, left, width, height} = element
+      const {top, left,right, height, bottom} = element
+      const centralPointHeight = parseFloat(String(bottom - top)) / 2;
+      const centralPointWidth = parseFloat(String(right - left)) / 2;
       let root = document.documentElement;
-      root.style.setProperty('--zoneY', left + "px");
-      root.style.setProperty('--zoneX', top + "px");
-      root.style.setProperty('--zoneSize', parseFloat(height + width) - parseFloat(String((height + width) * 0.3)) + "px");
+      root.style.setProperty('--zoneY', parseFloat(left + centralPointWidth) + "px");
+      root.style.setProperty('--zoneX', parseFloat(top + centralPointHeight) + "px");
+      root.style.setProperty('--zoneSize', parseFloat(height)+ parseFloat(String(height * 0.1)) + "px");
     } catch (e) {
       return null;
     }

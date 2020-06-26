@@ -2,8 +2,9 @@
   --zoneY: 50%;
   --zoneX: 0;
   --zoneSize: 100px;
+  --zoneColor: rgba(153, 147, 234, 0.55);
   --zoneOver:calc(var(--zoneSize) * 1.1);
-  --zone: -webkit-radial-gradient(var(--zoneY) var(--zoneX), circle, transparent var(--zoneSize), rgba(153, 147, 234, 0.55) var(--zoneOver));
+  --zone: -webkit-radial-gradient(var(--zoneY) var(--zoneX), circle, transparent var(--zoneSize), var(--zoneColor) var(--zoneOver));
 }
 
 .ngx-wrapper-overview {

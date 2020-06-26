@@ -1,13 +1,30 @@
 {
   "name": "ngx-copilot",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "peerDependencies": {
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
   },
+  "keywords": [
+    "angular",
+    "ngx-tour",
+    "ngx-copilote",
+    "ngx-copilot",
+    "ngx-copiloto",
+    "wizard-copiloto",
+    "stepper",
+    "step-by-step",
+    "angular6",
+    "angular2",
+    "angular8",
+    "angular9",
+    "wizard",
+    "tour"
+  ],
   "author": {
     "email": "leifer33@gmail.com",
-    "name": "Leifer Mendez"
+    "name": "Leifer Mendez",
+    "url": "https://leifermendez.github.io"
   },
   "scripts": {
     "build-lib": "ng build --prod ngx-copilot"
