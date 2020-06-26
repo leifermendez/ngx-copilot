@@ -13,6 +13,8 @@ The most expected has arrived, a package for Angular that facilitates us to impr
 <p  align="center" style="display:flex;justify-content: space-between;width:100%;align-content: center;">
 <b>Examples</b><br>
 <img height="400" src="https://i.imgur.com/mMdMVjq.gif"  alt="Preview 1" />
+<br>
+<img height="400" src="https://i.imgur.com/HSWTgFq.gif"  alt="Preview 2" />	
 </p>
 
 ### Install
