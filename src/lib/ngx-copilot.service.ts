@@ -63,7 +63,6 @@ export class NgxCopilotService {
       const list = document.querySelector(`.copilot-view`) as any;
       const listParent = document.querySelectorAll(`.ngx-copilot-init`) as any;
       Array.from(listParent).map((e: any) => {
-        console.log(e)
         e.style.backgroundColor = 'initial'
       });
       Array.from(list).map((e: any) => {
@@ -83,11 +82,13 @@ export class NgxCopilotService {
         const o = e.getAttribute('step');
         const single = document.querySelector(`.ngx-copilot-init[data-step='${o}']`) as any;
         if (`${order}` === o) {
+          const singleZone = single.getBoundingClientRect();
           single.style.backgroundColor = '#cfceff'
           single.classList.add('ngx-copilot-pulse')
           wrapper.classList.add('ngx-copilot-active')
           wrapper.classList.add(`ngx-copilot-active-step-${o}`)
           e.style.display = `block`;
+          this.setZone(singleZone)
         } else {
           wrapper.classList.remove(`ngx-copilot-active-step-${o}`)
           single.style.backgroundColor = 'initial'
@@ -95,10 +96,21 @@ export class NgxCopilotService {
           // wrapper.classList.remove('ngx-copilot-active')
           e.style.display = `none`;
         }
-
       })
     } catch (e) {
       return null
+    }
+  }
+
+  public setZone = (element = null) => {
+    try {
+      const {top, left, width, height} = element
+      let root = document.documentElement;
+      root.style.setProperty('--zoneY', left + "px");
+      root.style.setProperty('--zoneX', top + "px");
+      root.style.setProperty('--zoneSize', parseFloat(height + width) - parseFloat(String((height + width) * 0.3)) + "px");
+    } catch (e) {
+      return null;
     }
   }
 

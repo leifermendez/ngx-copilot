@@ -10,7 +10,7 @@
     "name": "Leifer Mendez"
   },
   "scripts": {
-    "build-lib": "ng build ngx-copilot"
+    "build-lib": "ng build --prod ngx-copilot"
   },
   "dependencies": {
     "tslib": "^1.10.0"

@@ -7,7 +7,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  /*background-color: rgba(255, 255, 255, 0.7);*/
 }
 
 .ngx-wrapper-overview .copilot-view {
@@ -20,6 +20,8 @@
   color: white;
   display: none;
 }
+
+
 .ngx-wrapper-overview .copilot-view:before{
   /*content: "";*/
   /*background-color: #6b66ff;*/
