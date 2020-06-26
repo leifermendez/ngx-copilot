@@ -1,6 +1,6 @@
 {
   "name": "ngx-copilot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
