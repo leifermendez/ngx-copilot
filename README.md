@@ -3,7 +3,8 @@
 
 The most expected has arrived, a package for Angular that facilitates us to improve the experience of our users when guiding them in our interface
 
-<img src="https://badgen.net/npm/dy/ngx-copilot" /> <img src="https://badgen.net/npm/v/ngx-copilot" />
+<img src="https://badgen.net/npm/dy/ngx-copilot" /> <img src="https://badgen.net/npm/v/ngx-copilot" />  <img src="https://img.shields.io/github/stars/leifermendez/ngx-copilot" /> <img src="https://img.shields.io/github/license/leifermendez/ngx-copilot" />
+
 ---
 
 [Live demo](https://ngx-copilot.stackblitz.io/)
