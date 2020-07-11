@@ -17,6 +17,8 @@ import {NgxCopilotService} from "./ngx-copilot.service";
 export class CopilotDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input('copilot-step') step: any;
   @Input('copilot-template') template: TemplateRef<any>;
+  @Input('copilot-mode') mode = 'vertical';
+  @Input('copilot-color') overviewcolor = 'false';
 
   constructor(private service: NgxCopilotService, private elem: ElementRef) {
 
@@ -35,10 +37,14 @@ export class CopilotDirective implements OnInit, OnDestroy, AfterViewInit {
     if (this.template) {
       this.elem.nativeElement.classList.add('ngx-copilot-init');
       if (this.step) {
-        this.elem.nativeElement.dataset.step = this.step
+        this.elem.nativeElement.dataset.step = this.step;
+        this.elem.nativeElement.dataset.comode = this.mode;
+        this.elem.nativeElement.dataset.overviewcolor = this.overviewcolor;
         this.service.template.emit({
           step: this.step,
-          template: this.template
+          template: this.template,
+          mode: this.mode,
+          overviewcolor: this.overviewcolor
         })
       }
     }
