@@ -5,6 +5,7 @@
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "angular",
     "ngx-tour",
