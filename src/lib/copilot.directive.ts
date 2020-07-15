@@ -3,18 +3,15 @@ import {
   Directive,
   ElementRef,
   Input,
-  OnDestroy,
   OnInit,
-  Renderer2,
-  TemplateRef,
-  ViewChild
+  TemplateRef
 } from '@angular/core';
 import {NgxCopilotService} from "./ngx-copilot.service";
 
 @Directive({
   selector: '[copilot]'
 })
-export class CopilotDirective implements OnInit, OnDestroy, AfterViewInit {
+export class CopilotDirective implements OnInit, AfterViewInit {
   @Input('copilot-step') step: any;
   @Input('copilot-template') template: TemplateRef<any>;
   @Input('copilot-mode') mode = 'vertical';
@@ -26,10 +23,6 @@ export class CopilotDirective implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
 
-  }
-
-  ngOnDestroy(): void {
-    this.service.template.unsubscribe()
   }
 
   ngAfterViewInit(): void {

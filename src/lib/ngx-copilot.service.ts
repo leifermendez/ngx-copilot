@@ -111,7 +111,7 @@ export class NgxCopilotService {
       const wrapper = document.querySelector(`.ngx-wrapper-overview`) as any;
       const list = document.querySelector(`.copilot-view`) as any;
       const listParent = document.querySelectorAll(`.ngx-copilot-init`);
-
+      body.classList.remove('ngx-copilot-active');
       Array.from(document.querySelectorAll(`.copilot-view`)).map((e: any) => {
         if (e && e.style) {
           e.style.display = 'none';
@@ -138,43 +138,60 @@ export class NgxCopilotService {
     }
   };
 
+  public removeClassByPrefix = (el, prefix) => {
+     const regx = new RegExp('\\b' + prefix + '.*?\\b', 'g');
+     el.className = el.className.replace(regx, '');
+     return el;
+ }
+
   public find = (order = null) => {
     try {
       const wrapper = document.querySelector(`body`);
-      Array.from(document.querySelectorAll(`.copilot-view`)).map((e: any) => {
-        const step = e.getAttribute('step'); // Obtenemos el paso al que va el template
-        const trace = `.ngx-copilot-init[data-step='${step}']`; // Buscamos el element hacer focus
-        const single = document.querySelector(trace) as any;
-        if (single) {
-          if (`${order}` === step) { // Si el template con el paso y el focus son el mismo mostramos
-            const {comode, overviewcolor} = single.dataset;
-            single.style.backgroundColor = '#cfceff';
-            single.classList.add('ngx-copilot-pulse');
-            wrapper.classList.add('ngx-copilot-active');
-            wrapper.classList.add(`ngx-copilot-active-step-${step}`);
-            /**
-             * Fix perfomance
-             */
-            const checkViewPort = this.isInViewport(single);
-            if (checkViewPort.view) { // Yes in viewport
-              this.setZone(trace, comode, overviewcolor);
-              e.style.display = `block`;
-            } else { //Must scrolled
-              this.scrollLocated(single).then(() => {
+      if(!document.querySelector(`.ngx-copilot-init[data-step='${order}']`)){
+        const wrapperSingle = document.querySelector(`.ngx-wrapper-overview`) as any;
+        wrapperSingle.style.display = 'none';
+        this.removeClassByPrefix(wrapper,'ngx-copilot-');
+      }else{
+        Array.from(document.querySelectorAll(`.copilot-view`)).map((e: any) => { // Templates
+          const step = e.getAttribute('step'); // Obtenemos el paso al que va el template
+          const trace = `.ngx-copilot-init[data-step='${step}']`; // Buscamos el element hacer focus
+          const single = document.querySelector(trace) as any;
+          if (single) {
+            if (`${order}` === step) { // Si el template con el paso y el focus son el mismo mostramos
+              const {comode, overviewcolor} = single.dataset;
+              single.style.backgroundColor = '#cfceff';
+              single.classList.add('ngx-copilot-pulse');
+              wrapper.classList.add('ngx-copilot-active');
+              wrapper.classList.add(`ngx-copilot-active-step-${step}`);
+              /**
+               * Fix perfomance
+               */
+              const checkViewPort = this.isInViewport(single);
+              if (checkViewPort.view) { // Yes in viewport
                 this.setZone(trace, comode, overviewcolor);
                 e.style.display = `block`;
-              });
+              } else { //Must scrolled
+                this.scrollLocated(single).then(() => {
+                  this.setZone(trace, comode, overviewcolor);
+                  e.style.display = `block`;
+                });
+              }
+            } else {
+              single.style.backgroundColor = 'initial';
+              wrapper.classList.remove(`ngx-copilot-active-step-${step}`);
+              single.classList.remove('ngx-copilot-pulse');
+              // wrapper.classList.remove('ngx-copilot-active');
+              e.style.display = `none`;
             }
           } else {
             single.style.backgroundColor = 'initial';
             wrapper.classList.remove(`ngx-copilot-active-step-${step}`);
             single.classList.remove('ngx-copilot-pulse');
-            wrapper.classList.remove('ngx-copilot-active');
+            // wrapper.classList.remove('ngx-copilot-active');
             e.style.display = `none`;
           }
-        } else {
-        }
-      });
+        });
+      }  
     } catch (e) {
       return null;
     }
