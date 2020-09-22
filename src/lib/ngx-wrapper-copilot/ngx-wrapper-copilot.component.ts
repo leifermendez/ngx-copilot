@@ -17,11 +17,12 @@ export class NgxWrapperCopilotComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     this.subscriber = this.service.template.subscribe(a => {
-      this.viewTemplate.push(a)
-    })
+      if (!this.service.checkIfExistDom(a.step)) {
+        this.viewTemplate.push(a);
+      }
 
+    });
     this.service.nextEmit.subscribe(next => this.service.find(next))
   }
 
@@ -30,7 +31,7 @@ export class NgxWrapperCopilotComponent implements OnInit, OnDestroy {
       this.subscriber.unsubscribe();
       this.viewTemplate = [];
     } catch (e) {
-      return null;
+      this.viewTemplate = [];
     }
   }
 

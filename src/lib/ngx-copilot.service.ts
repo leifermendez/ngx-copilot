@@ -38,7 +38,7 @@ export class NgxCopilotService {
       countFlag++;
       const {top} = this.isInViewport(element).axis;
       const fullHeight = (window.innerHeight || document.documentElement.clientHeight);
-      const percentaView = parseFloat(String(top * 100)) / fullHeight;
+      const percentageView = parseFloat(String(top * 100)) / fullHeight;
       if ((top < 1) || (countFlag > init)) {
         clearInterval(id);
         if (countFlag > init) {
@@ -50,7 +50,7 @@ export class NgxCopilotService {
         if (countFlag === 20) {
           element.scrollIntoView(options);
         } else if ((countFlag > 5) && (countFlag < 15)) {
-          if ((percentaView > 10) && (percentaView < 80)) {
+          if ((percentageView > 10) && (percentageView < 80)) {
             clearInterval(id);
             resolve(true);
           }
@@ -139,19 +139,19 @@ export class NgxCopilotService {
   };
 
   public removeClassByPrefix = (el, prefix) => {
-     const regx = new RegExp('\\b' + prefix + '.*?\\b', 'g');
-     el.className = el.className.replace(regx, '');
-     return el;
- }
+    const regx = new RegExp('\\b' + prefix + '.*?\\b', 'g');
+    el.className = el.className.replace(regx, '');
+    return el;
+  }
 
   public find = (order = null) => {
     try {
       const wrapper = document.querySelector(`body`);
-      if(!document.querySelector(`.ngx-copilot-init[data-step='${order}']`)){
+      if (!document.querySelector(`.ngx-copilot-init[data-step='${order}']`)) {
         const wrapperSingle = document.querySelector(`.ngx-wrapper-overview`) as any;
         wrapperSingle.style.display = 'none';
-        this.removeClassByPrefix(wrapper,'ngx-copilot-');
-      }else{
+        this.removeClassByPrefix(wrapper, 'ngx-copilot-');
+      } else {
         Array.from(document.querySelectorAll(`.copilot-view`)).map((e: any) => { // Templates
           const step = e.getAttribute('step'); // Obtenemos el paso al que va el template
           const trace = `.ngx-copilot-init[data-step='${step}']`; // Buscamos el element hacer focus
@@ -180,18 +180,16 @@ export class NgxCopilotService {
               single.style.backgroundColor = 'initial';
               wrapper.classList.remove(`ngx-copilot-active-step-${step}`);
               single.classList.remove('ngx-copilot-pulse');
-              // wrapper.classList.remove('ngx-copilot-active');
               e.style.display = `none`;
             }
           } else {
             single.style.backgroundColor = 'initial';
             wrapper.classList.remove(`ngx-copilot-active-step-${step}`);
             single.classList.remove('ngx-copilot-pulse');
-            // wrapper.classList.remove('ngx-copilot-active');
             e.style.display = `none`;
           }
         });
-      }  
+      }
     } catch (e) {
       return null;
     }
@@ -232,5 +230,14 @@ export class NgxCopilotService {
   public next = (data = null) => {
     this.nextEmit.emit(data);
   };
+
+  public checkIfExistDom = (step: string) => {
+    try{
+      const dom = document.querySelector(`.copilot-view-step-${step}`)
+      return (dom)
+    }catch (e) {
+      return null
+    }
+  }
 
 }
