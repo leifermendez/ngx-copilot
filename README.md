@@ -5,6 +5,8 @@ The most expected has arrived, a package for Angular that facilitates us to impr
 
 <img src="https://badgen.net/npm/dy/ngx-copilot" /> <img src="https://badgen.net/npm/v/ngx-copilot" />  <img src="https://img.shields.io/github/stars/leifermendez/ngx-copilot" /> <img src="https://img.shields.io/github/license/leifermendez/ngx-copilot" />
 
+
+<a href="https://www.buymeacoffee.com/leifermendez" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 ---
 
 [Live demo](https://ngx-copilot.stackblitz.io/)
@@ -150,4 +152,4 @@ If you want change of overlay color insert in your styles.css:
 	--zoneColor:rgba(114, 113, 160, 0.5) !important
 }
 ```
-<a href="https://www.buymeacoffee.com/leifermendez" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
